@@ -1,0 +1,14 @@
+address_book_homepage:
+    path:     /
+    defaults: { _controller: AddressBookBundle:AddressBook:index }
+
+address_book_delete:
+    path:     /delete
+    defaults: { _controller: AddressBookBundle:AddressBook:delete }
+
+address_book_add:
+    path:     /add
+    defaults: { _controller: AddressBookBundle:AddressBook:add }
+
+
+

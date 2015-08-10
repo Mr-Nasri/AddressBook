@@ -1,0 +1,102 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    <div class="container-fluid">
+    <div class="page-content">
+    <div class="row">
+    <div class="col-md-12">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-cogs font-green-sharp"></i>
+            <span class="caption-subject font-green-sharp bold uppercase">Liste des contacts</span>
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-toolbar">
+            <form role="form" method="post" action="{{ path('address_book_add') }}">
+                <div class="row">
+                    <div class="col-md-6">
+                        {% for message in app.session.flashbag.get('error') %}
+                            <div>
+                                <span class="alert alert-danger">{{ message }}</span>
+                            </div><br>
+                        {% endfor %}
+                        <div class="input-group input-medium">
+                            <input type="text" class="form-control" placeholder="Entez un username" name="username">
+                            <span class="input-group-btn">
+                            <button class="btn blue" type="submit">Ajouter</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+            <thead>
+            <tr>
+                <th>
+                    Username
+                </th>
+                <th>
+                    Nom complet
+                </th>
+                <th>
+                    email
+                </th>
+                <th>
+                    addresse
+                </th>
+                <th>
+                    telephone
+                </th>
+                <th>
+                    site web
+                </th>
+                <th>
+                    Supprimer
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for user in users  %}
+                    <tr>
+                        <td data-path="{{path('address_book_delete')}}" id="{{ user.id }}">
+                            {{ user.username }}
+                        </td>
+                        <td>
+                            {{ user.nom }} {{ user.prenom }}
+                        </td>
+                        <td>
+                            {{ user.email }}
+                        </td>
+                        <td class="center">
+                            {{ user.addresse }}
+                        </td>
+                        <td>
+                            {{ user.telephone }}
+                        </td>
+                        <td>
+                            {{ user.siteweb }}
+                        </td>
+                        <td>
+                            <a class="delete" href="javascript:;">
+                                Delete </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+    </div>
+    </div>
+    <!-- Page Content END -->
+
+    </div>
+{% endblock %}

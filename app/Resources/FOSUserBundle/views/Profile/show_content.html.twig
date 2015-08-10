@@ -1,0 +1,51 @@
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+    <div class="container-fluid">
+        <div class="page-content">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <span class="input-group-btn">
+                        <a class="btn blue" href="{{ path('fos_user_profile_edit') }}" type="submit">Editer</a>
+                    </span>
+
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                <table id="user" class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td style="width:15%">Username</td>
+                            <td style="width:50%">{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom Complet</td>
+                            <td>{{ user.nom }} {{ user.prenom }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Adresse</td>
+                            <td>{{ user.addresse }}</td>
+                        </tr>
+                        <tr>
+                            <td>Téléphone</td>
+                            <td>{{ user.telephone }}</td>
+                        </tr>
+                        <tr>
+                            <td>Site web</td>
+                            <td>{{ user.siteweb }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+        <!-- Page Content END -->
+
+    </div>
